@@ -1,0 +1,9 @@
+This project uses the following third-party libraries:
+
+---
+
+Library: Stanza  
+Source: https://github.com/stanfordnlp/stanza  
+License: Apache License, Version 2.0  
+License Text: See LICENSE-apache.txt
+

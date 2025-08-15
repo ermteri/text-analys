@@ -1,0 +1,6 @@
+flask
+stanza==1.7.0
+numpy<2
+torch==2.2.2
+natsort
+

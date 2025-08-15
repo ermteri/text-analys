@@ -1,0 +1,21 @@
+Stanza följer Universal POS-tagset (UPOS), som är en standardiserad uppsättning ordklasser som används i Universal Dependencies (UD) – ett annoteringsprojekt för många språk. Svenska modellen för Stanza (baserad på SUC och UD-svenska) använder följande 17 ordklasser (UPOS-taggar):
+| Akronym | Fullt namn                       | Exempel                             |
+| ------- | -------------------------------- | ----------------------------------- |
+| `ADJ`   | Adjektiv                         | *stor, vacker, grön*                |
+| `ADP`   | Adposition                       | *på, i, till, från*                 |
+| `ADV`   | Adverb                           | *snabbt, aldrig, mycket*            |
+| `AUX`   | Hjälpverb                        | *har, är, ska, kommer att*          |
+| `CCONJ` | Samordnande konjunktion          | *och, men, eller*                   |
+| `DET`   | Determinativ (artikel, pronomen) | *den, ett, min*                     |
+| `INTJ`  | Interjektion                     | *hej, oj, usch*                     |
+| `NOUN`  | Substantiv                       | *hund, hus, Sverige*                |
+| `NUM`   | Räkneord                         | *ett, två, tredje*                  |
+| `PART`  | Partikel                         | *ju, väl, nog*                      |
+| `PRON`  | Pronomen                         | *jag, du, vi, han, henne*           |
+| `PROPN` | Eget namn                        | *Anna, Stockholm, Volvo*            |
+| `PUNCT` | Skiljetecken                     | *., !, ?*                           |
+| `SCONJ` | Underordnande konjunktion        | *att, eftersom, medan*              |
+| `SYM`   | Symbol                           | *%, \$, ©*                          |
+| `VERB`  | Huvudverb                        | *springa, tala, skriva*             |
+| `X`     | Okänd/annat                      | (t.ex. felstavade eller okända ord) |
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Textanalys</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Textanalys</h1>
+    <p class="forbidden">Av Torsten Eriksson</p>
+    <p>Klistra in texten som ska analyseras i textrutan nedan och välj vilka ord som ska markeras i texten genom att klicka på en av knapparna under texten; ordklasser eller de som finns i listan på onödiga ord. Egna onödiga ord kan laddas upp i form av en textfil. Vill man återställa standardvärdet på den listan, sätt markören i det textfältet, markera allt och delete. Vid nästa analys av någon av ordklasserna eller onödiga ord, återställs den.</p>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <label for="file">Ladda upp en egen lista med onödiga ord (txt):</label>
+        <input type="file" name="file" accept=".txt" required>
+        <button type="submit">Ladda upp</button>
+    </form>
+    <form method="post" action="/">
+        <p class="textarea-label">Ord som ofta är onödiga:</p>
+        <textarea name="forbidden_words" id="forbidden_words" rows="2" cols="80">{{ forbidden_words }}</textarea>
+        <p class="textarea-label">Text att analysera:</p>
+        <textarea name="input_text" id="input_text" rows="10" cols="80" placeholder="Klistra in din svenska text här...">{{ request.form.input_text or '' }}</textarea>
+
+        <br>
+        <button name="show_class" class="adjektiv" value="adjektiv">Visa adjektiv</button>
+        <button name="show_class" class="adverb" value="adverb">Visa adverb</button>
+        <button name="show_class" class="verb" value="verb">Visa verb</button>
+        <button name="show_class" class="pronomen" value="pronomen">Visa pronomen</button>
+        <button name="show_class" class="forbidden" value="forbidden">Visa onödiga</button>
+        <button onclick="clearInputField()">Rensa</button>
+    </form>
+
+    {% if result %}
+        <h2>Resultat</h2>
+        <div class="result-box">{{ result|safe }}</div>
+        <p><strong>Antal:</strong> {{ stats.count }}</p>
+        <p><strong>Andel av alla ord:</strong> {{ stats.percentage }}%</p>
+        <p><strong>Totalt antal ord:</strong> {{ stats.total }}</p>
+    {% endif %}
+   <footer style="margin-top: 2em;">
+      <a href="{{ url_for('privacy') }}">Integritetspolicy</a>
+   </footer>
+   <script>
+        function clearInputField() {
+            document.getElementById('input_text').value = "";
+        }
+   </script>
+</body>
+</html>

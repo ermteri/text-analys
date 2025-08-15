@@ -1,0 +1,44 @@
+body {
+    font-family: sans-serif;
+    margin: 2em;
+}
+
+textarea {
+    font-family: monospace;
+}
+
+.textarea-label {
+    margin-bottom: 2px;
+}
+
+.result-box {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-top: 1em;
+    background-color: #f9f9f9;
+}
+
+.adjektiv {
+    color: red;
+    font-weight: bold;
+}
+
+.adverb {
+    color: green;
+    font-weight: bold;
+}
+
+.verb {
+    color: blue;
+    font-weight: bold;
+}
+
+.pronomen {
+    color: purple;
+    font-weight: bold;
+}
+
+.forbidden {
+    color: black;
+    font-weight: bold;
+}
