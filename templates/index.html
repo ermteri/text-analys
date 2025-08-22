@@ -8,14 +8,14 @@
 <body>
     <h1>Textanalys</h1>
     <p class="forbidden">Av Torsten Eriksson</p>
-    <p>Klistra in texten som ska analyseras i textrutan nedan och välj vilka ord som ska markeras i texten genom att klicka på en av knapparna under texten; ordklasser eller de som finns i listan på onödiga ord. Egna onödiga ord kan laddas upp i form av en textfil. Vill man återställa standardvärdet på den listan, sätt markören i det textfältet, markera allt och delete. Vid nästa analys av någon av ordklasserna eller onödiga ord, återställs den.</p>
+    <p>Klistra in texten som ska analyseras i textrutan nedan och välj vilka ord som ska markeras i texten genom att klicka på en av knapparna under texten; ordklasser eller de som finns i listan på onödiga ord. Egna onödiga ord/begrepp kan laddas upp i form av en textfil. Vill man återställa standardvärdet på den listan, sätt markören i det textfältet, markera allt och delete. Vid nästa analys av någon av ordklasserna eller onödiga ord, återställs den.</p>
     <form method="POST" enctype="multipart/form-data" action="/upload">
-        <label for="file">Ladda upp en egen lista med onödiga ord (txt):</label>
+        <label for="file">Ladda upp en egen lista med onödiga ord/begrepp (txt):</label>
         <input type="file" name="file" accept=".txt" required>
         <button type="submit">Ladda upp</button>
     </form>
     <form method="post" action="/">
-        <p class="textarea-label">Ord som ofta är onödiga:</p>
+        <p class="textarea-label">Ord/begrepp som ofta är onödiga:</p>
         <textarea name="forbidden_words" id="forbidden_words" rows="2" cols="80">{{ forbidden_words }}</textarea>
         <p class="textarea-label">Text att analysera:</p>
         <textarea name="input_text" id="input_text" rows="10" cols="80" placeholder="Klistra in din svenska text här...">{{ request.form.input_text or '' }}</textarea>
@@ -35,6 +35,15 @@
         <p><strong>Antal:</strong> {{ stats.count }}</p>
         <p><strong>Andel av alla ord:</strong> {{ stats.percentage }}%</p>
         <p><strong>Totalt antal ord:</strong> {{ stats.total }}</p>
+        <p><strong>LIX:</strong> {{ stats.lix }}</p>
+        <p><i>
+            < 30	Mycket lättläst, barnböcker <br>
+            30 - 40	Lättläst, skönlitteratur, populärtidningar <br>
+            40 - 50	Medelsvår, normal tidningstext <br>
+            50 - 60	Svår, normalt värde för officiella texter<br>
+            > 60	Mycket svår, byråkratsvenska<br>
+        </i></p>
+
     {% endif %}
    <footer style="margin-top: 2em;">
       <a href="{{ url_for('privacy') }}">Integritetspolicy</a>
